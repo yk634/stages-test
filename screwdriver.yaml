@@ -1,7 +1,7 @@
 shared:
   image: node:18
-  annotations:
-    screwdriver.cd/virtualJob: true
+  # annotations:
+  #   screwdriver.cd/virtualJob: true
   steps:
     - echo: echo hoge
 
