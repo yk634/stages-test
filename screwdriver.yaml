@@ -16,8 +16,17 @@ jobs:
     requires: [ ~job2 ]
   job5:
     requires: [ ~job1 ]
+  job6:
+    requires: []
+  job7:
+    requires: [ ~job6 ]
+  job8:
+    requires: [ ~job6 ]
 
 stages:
   stage1:
     requires: [ ~commit ]
     jobs: [ job1, job2, job3, job4 ]
+  stage2:
+    requires: [ ~job5 ]
+    jobs: [ job6, job7, job8 ]
