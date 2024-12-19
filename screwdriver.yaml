@@ -7,9 +7,9 @@ shared:
 
 jobs:
   job1:
-    requires: []
+    requires: [ ~commit ]
   job2:
-    requires: [ ~job1 ]
+    requires: []
   job3:
     requires: [ ~job2 ]
   job4:
