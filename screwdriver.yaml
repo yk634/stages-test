@@ -1,0 +1,23 @@
+shared:
+  image: node:18
+  annotations:
+    screwdriver.cd/virtualJob: true
+  steps:
+    - echo: echo hoge
+
+jobs:
+  job1:
+    requires: []
+  job2:
+    requires: [ ~job1 ]
+  job3:
+    requires: [ ~job2 ]
+  job4:
+    requires: [ ~job2 ]
+  job5:
+    requires: [ ~job1 ]
+
+stages:
+  stage1:
+    requires: [ ~commit ]
+    jobs: [ job1, job2, job3, job4 ]
